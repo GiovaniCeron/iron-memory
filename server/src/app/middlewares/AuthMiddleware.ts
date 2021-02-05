@@ -23,7 +23,7 @@ function AuthMiddleware(request: Request, response: Response, next: NextFunction
 
     request.userId = id;
 
-    next();
+    return next();
   } catch {
     return response.sendStatus(401);
   }

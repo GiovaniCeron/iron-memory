@@ -24,7 +24,6 @@
   "author": "Giovani Henrique Ceron",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
-    "typeorm": "npx ts-node ./node_modules/typeorm/cli.js"
+    "dev": "ts-node-dev --ignore-watch node_modules --files src/server.ts"
   }
 }

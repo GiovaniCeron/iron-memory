@@ -1,5 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert, BeforeUpdate } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, 
+  BeforeInsert, BeforeUpdate, OneToMany, JoinColumn } from 'typeorm';
 import bcrypt from 'bcryptjs';
+import Deck from './Deck';
 
 @Entity('users')
 class User {
@@ -21,6 +23,11 @@ class User {
 
   @Column('timestamp')
   date_update: Date;
+
+  @OneToMany(() => Deck, deck => deck.user, {
+    lazy: true
+  })
+  decks : Deck[]
 
   @BeforeInsert()
   @BeforeUpdate()
