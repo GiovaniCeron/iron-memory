@@ -1,6 +1,7 @@
 require('dotenv').config({
   path: '.env.development'
 });
+
 import express from 'express';
 import cors from 'cors';
 

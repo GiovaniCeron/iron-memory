@@ -1,5 +1,6 @@
-import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany} from 'typeorm';
 import User from './User';
+import Card from './Card';
 
 @Entity('decks')
 class Deck {
@@ -23,6 +24,11 @@ class Deck {
 
   @Column('timestamp')
   date_update: Date;
+
+  @OneToMany(() => Card, card => card.deck, {
+    lazy: true
+  })
+  cards : Card[]
 
 }
 
