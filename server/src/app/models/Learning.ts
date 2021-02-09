@@ -7,7 +7,7 @@ class Learning {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
-  @ManyToOne(() => Card, card => card.id)
+  @ManyToOne(() => Card, card => card.learning)
   card: Card;
 
   @Column('date', { name: "date_learn", nullable: false })

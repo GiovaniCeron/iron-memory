@@ -69,14 +69,20 @@ class CardsController {
 
   async delete(request: Request, response: Response) {
     const repositoryCard = getRepository(Card);
+    const repositoryLearning = getRepository(Learning);
 
     const cardId = request.params.id;
 
-    const card = await repositoryCard.delete(cardId);
+    const card = await repositoryCard.findOne(cardId); 
 
     if (!card) {
       return response.sendStatus(500);
     }
+
+    const learning = await repositoryLearning.find({where:{card}});
+    await repositoryLearning.remove(learning);
+    
+    await repositoryCard.remove(card);
 
     return response.sendStatus(200);
   }

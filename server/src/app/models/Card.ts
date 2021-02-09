@@ -25,9 +25,7 @@ class Card {
   @Column('timestamp')
   date_update: Date;
 
-  @OneToMany(() => Learning, learning => learning.id, {
-    onDelete: 'CASCADE'
-  })
+  @OneToMany(() => Learning, learning => learning.card)
   learning: Learning[]
 
 }
