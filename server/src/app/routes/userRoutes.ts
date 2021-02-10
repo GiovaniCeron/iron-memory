@@ -6,6 +6,6 @@ const routes = Router();
 import UserController from '../controllers/UserController';
 
 routes.post('/', UserController.create);
-routes.get('/', UserController.authenticate);
+routes.post('/login', UserController.authenticate);
 
 export default routes;
